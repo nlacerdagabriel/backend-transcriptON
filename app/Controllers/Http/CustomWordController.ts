@@ -15,7 +15,7 @@ export default class CustomWordController {
     const existingCustomWord = await CustomWord.findBy('from', from)
 
     if(existingCustomWord){
-      return response.json(`A palavra "${from}" já foi usada.`)
+      return response.status(400).json(`A palavra "${from}" já foi usada.`)
     }
 
 
