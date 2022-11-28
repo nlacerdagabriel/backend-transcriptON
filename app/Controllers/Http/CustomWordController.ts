@@ -1,5 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { schema, rules } from '@ioc:Adonis/Core/Validator'
+import { schema } from '@ioc:Adonis/Core/Validator'
 import CustomWord from 'App/Models/CustomWord'
 
 
@@ -30,7 +30,7 @@ export default class CustomWordController {
     return response.json(customWords)
   }
 
-  public async getOne({ response, request, params }: HttpContextContract) {
+  public async getOne({ response, params }: HttpContextContract) {
     const customWord = await CustomWord.find(params.id)
 
     return response.json(customWord)
