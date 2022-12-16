@@ -24,13 +24,13 @@ export default class CustomWordController {
     return response.json(customWord)
   }
 
-  public async getAll({request, response }: HttpContextContract) {
+  public async getAll({ response }: HttpContextContract) {
     const customWords = await CustomWord.all()
 
     return response.json(customWords)
   }
 
-  public async getOne({request, response, params }: HttpContextContract) {
+  public async getOne({ response, params }: HttpContextContract) {
     const customWord = await CustomWord.find(params.id)
 
     return response.json(customWord)
@@ -55,7 +55,7 @@ export default class CustomWordController {
     return response.json(updatedWord)
   }
 
-  public async deleteOne({request, response, params}: HttpContextContract){
+  public async deleteOne({ response, params}: HttpContextContract){
 
     const customWord = await CustomWord.findOrFail(params.id)
 
