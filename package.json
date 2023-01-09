@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "node ace serve --watch",
-    "build": "rimraf ./dist && tsc",
-    "start": "npm run build && node dist/server.js"
+    "build": "node ace build --production",
+    "start": "node src/server.js"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.9.5",
