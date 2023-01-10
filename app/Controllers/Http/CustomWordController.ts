@@ -25,11 +25,9 @@ export default class CustomWordController {
   }
 
   public async getAll({ response }: HttpContextContract) {
-    //const customWords = await CustomWord.all()
+    const customWords = await CustomWord.all()
 
-    //return response.json(customWords)
-
-    return response.json({teste: 'sim'})
+    return response.json(customWords)
   }
 
   public async getOne({ response, params }: HttpContextContract) {
