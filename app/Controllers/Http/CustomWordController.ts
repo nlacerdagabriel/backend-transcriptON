@@ -18,6 +18,9 @@ export default class CustomWordController {
       return response.status(400).json(`A palavra "${from}" já foi usada.`)
     }
 
+    if(to.includes(" ")){
+      to.replace(" ", "@")
+    }
 
     const customWord = CustomWord.create({ from, to })
 
