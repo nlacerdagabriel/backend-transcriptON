@@ -1,11 +1,12 @@
 {
-  "name": "backend-transcription",
+   "type": "module",
+ "name": "backend-transcription",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
-    "start": "node src/build/server.js"
+    "start": "node server.js"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.9.3",
