@@ -20,7 +20,9 @@ export default class CustomWordController {
 
 
     if(to.includes(" ")){
-      to = to.replace(" ", "@")
+      to = to.split("@").join(" ")
+      
+
     }
 
     const customWord = CustomWord.create({ from, to })
