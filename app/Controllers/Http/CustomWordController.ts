@@ -20,8 +20,8 @@ export default class CustomWordController {
 
 
     if(to.includes(" ")){
-      to = to.split("@").join(" ")
-      
+      to =   to.split(" ").join("@")
+    
 
     }
 
