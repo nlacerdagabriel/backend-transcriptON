@@ -10,7 +10,7 @@ export default class CustomWordController {
       to: schema.string({ trim: true }),
     })
 
-    const { from, to } = await request.validate({ schema: wordSchema })
+    let { from, to } = await request.validate({ schema: wordSchema })
 
     const existingCustomWord = await CustomWord.findBy('from', from)
 
@@ -18,8 +18,9 @@ export default class CustomWordController {
       return response.status(400).json(`A palavra "${from}" já foi usada.`)
     }
 
+
     if(to.includes(" ")){
-      to.replace(" ", "@")
+      to = to.replace(" ", "@")
     }
 
     const customWord = CustomWord.create({ from, to })
