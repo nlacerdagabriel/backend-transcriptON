@@ -21,8 +21,7 @@ export default class CustomWordController {
 
     if(to.includes(" ")){
       to =   to.split(" ").join("@")
-    
-
+  
     }
 
     const customWord = CustomWord.create({ from, to })
@@ -49,9 +48,15 @@ export default class CustomWordController {
       from: schema.string({ trim: true }),
       to: schema.string({ trim: true }),
     })
+    
 
-    const { from, to } = await request.validate({ schema: wordSchema })
+    let { from, to } = await request.validate({ schema: wordSchema })
 
+    
+    if(to.includes(" ")){
+      to =   to.split(" ").join("@")
+    }
+    
     const customWord = await CustomWord.findOrFail(params.id)
     customWord.from = from
     customWord.to = to
