@@ -12,4 +12,9 @@ Route.group(() => {
   Route.get('/get-one/:id', 'CustomWordController.getOne')
   Route.put('/update-one/:id', 'CustomWordController.updateOne')
   Route.delete('/delete-one/:id', 'CustomWordController.deleteOne')
-}).prefix('/custom-word')
+}).prefix('/custom-word').middleware("auth");
+
+Route.group(() => {
+  Route.post("/login", "AuthController.login");
+  Route.post("/logout", "AuthController.logout").middleware("auth");
+}).prefix("/auth");
